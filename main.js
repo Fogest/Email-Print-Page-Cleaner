@@ -1,3 +1,1 @@
-if($("body").is('[onload]')) {
-	$("div.bodycontainer table tbody img[alt='Gmail']").parent().hide();
-}
+$("div.bodycontainer table tbody img[alt='Gmail']").parent().hide();
