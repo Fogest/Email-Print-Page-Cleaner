@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "Gmail Print Page Cleaner",
+  "name": "Email Print Page Cleaner",
   "version": "1.0.2",
-  "description": "Removes some things from the Gmail print email page, mainly removing the Gmail logo at the top.",
+  "description": "Removes some things from the Email print pages (ie: Gmail) to make them cleaner",
 
   "permissions": [
     "https://mail.google.com/"
