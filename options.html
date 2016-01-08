@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Test Extension Options</title>
+  <style>
+    body: { padding: 10px; }
+  </style>
+</head>
+
+<body>
+  <label>
+    <input type="checkbox" id="hideGmailLogo">
+    Hide Gmail logo?
+  </label>
+  <br/>
+  <label>
+    <input type="checkbox" id="hideEmail">
+    Hide your email address?
+  </label>
+  <br/>
+  <label>
+    <input type="checkbox" id="hideSubject">
+    Hide the subject?
+  </label>
+  <br/>
+  <label>
+    <input type="checkbox" id="hideContactDetails">
+    Hide the senders details? <i>(This is an experimental settings and can sometimes make email conversations hard to follow)</i>
+  </label>
+  <br/>
+  <div id="status"></div>
+  <button id="save">Save</button>
+
+  <script src="options.js"></script>
+</body>
+</html>
