@@ -16,6 +16,7 @@ if(document.title.startsWith('Gmail')) {
     function hide() {
         if(hideGmailLogo) {
             $("div.bodycontainer table tbody img[alt='Gmail']").parent().hide();
+            $(".wrapper div.header").hide();
         }
         if(hideEmail) {
             $("body > div > table").siblings("hr").hide();
@@ -28,6 +29,7 @@ if(document.title.startsWith('Gmail')) {
         if(hideContactDetails) {
             $("table.message > tbody > tr:nth-child(1)").hide();
             $("table.message > tbody > tr:nth-child(2)").hide();
+            $("div.wrapper > div.body > div.mail-header").hide();
         }
     }
 }

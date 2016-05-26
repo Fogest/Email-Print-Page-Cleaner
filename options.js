@@ -4,7 +4,6 @@ function save_options() {
   var hideEmail = document.getElementById('hideEmail').checked;
   var hideSubject = document.getElementById('hideSubject').checked;
   var hideContactDetails = document.getElementById('hideContactDetails').checked;
-  alert("Here");
   chrome.storage.sync.set({
     hideGmailLogo: hideGmailLogo,
     hideEmail: hideEmail,
@@ -23,7 +22,6 @@ function save_options() {
 // Restores select box and checkbox state using the preferences
 // stored in chrome.storage.
 function restore_options() {
-  alert();
   chrome.storage.sync.get({
   hideGmailLogo: true,
   hideEmail: false,
