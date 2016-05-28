@@ -2,8 +2,8 @@
   "manifest_version": 2,
 
   "name": "Email Print Page Cleaner",
-  "version": "1.1",
-  "description": "Removes some things from the Email print pages (ie: Gmail) to make them cleaner",
+  "version": "1.2",
+  "description": "Removes some things from the Email print pages (ie: Gmail, Mail.com) to make them cleaner",
 
   "options_ui": {
     "page": "options.html",
@@ -12,7 +12,8 @@
 
   "permissions": [
     "storage",
-    "https://mail.google.com/"
+    "*://mail.google.com/*",
+    "*://*mail.com/*"
   ],
   
   "icons": { "16": "icon16.png",
