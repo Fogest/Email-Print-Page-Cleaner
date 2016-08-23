@@ -1,5 +1,5 @@
 //Check if it a print page
-if(document.title.startsWith('Gmail')) {
+if(document.title.startsWith('Gmail') || document.title.startsWith('mail')) {
     //Get user options
     var hideGmailLogo = true;
     var hideEmail = false;
