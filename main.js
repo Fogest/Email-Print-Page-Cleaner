@@ -15,7 +15,9 @@ if(document.title.startsWith('Gmail') || document.title.startsWith('mail')) {
 
     function hide() {
         if(hideGmailLogo) {
+            $("div.bodycontainer table tbody img[alt='Gmail']").parent().hide();
             $("div.bodycontainer table img.logo").hide();
+            $(".wrapper div.header").hide();
         }
         if(hideEmail) {
             $("body > div > table").siblings("hr").hide();
