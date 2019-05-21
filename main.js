@@ -1,36 +1,36 @@
-//Check if it a print page
-if(document.title.startsWith('Gmail') || document.title.startsWith('mail')) {
-    //Get user options
-    var hideGmailLogo = true;
-    var hideEmail = false;
-    var hideSubject = false;
-    var hideContactDetails = false;
-    chrome.storage.sync.get(['hideGmailLogo', 'hideEmail', 'hideSubject', 'hideContactDetails'], function(items) {
-        if(typeof items.hideGmailLogo !== 'undefined') hideGmailLogo = items.hideGmailLogo;
-        if(typeof items.hideEmail !== 'undefined') hideEmail = items.hideEmail;
-        if(typeof items.hideSubject !== 'undefined') hideSubject = items.hideSubject;
-        if(typeof items.hideContactDetails !== 'undefined') hideContactDetails = items.hideContactDetails;
-        hide();
-    })
+//Get user options
+var hideGmailLogo = true;
+var hideEmail = false;
+var hideSubject = false;
+var hideContactDetails = false;
+chrome.storage.sync.get(['hideGmailLogo', 'hideEmail', 'hideSubject', 'hideContactDetails'], function(items) {
+    if(typeof items.hideGmailLogo !== 'undefined') hideGmailLogo = items.hideGmailLogo;
+    if(typeof items.hideEmail !== 'undefined') hideEmail = items.hideEmail;
+    if(typeof items.hideSubject !== 'undefined') hideSubject = items.hideSubject;
+    if(typeof items.hideContactDetails !== 'undefined') hideContactDetails = items.hideContactDetails;
+    hide();
+})
 
-    function hide() {
-        if(hideGmailLogo) {
-            $("div.bodycontainer table tbody img.logo").parent().hide();
-            $("div.bodycontainer table tbody img.logo").hide();
-            $(".wrapper div.header").hide();
+
+
+function hide() {
+    if(hideGmailLogo) {
+        $("<style>").prop("type", "text/css").html("@media print{div.bodycontainer table tbody img.logo{display:none;}}").appendTo("head");
+        if(document.title.startsWith('mail')) {
+            $("<style>").prop("type", "text/css").html("@media print{.wrapper div.header{display:none;}}").appendTo("head");
         }
-        if(hideEmail) {
-            $("body > div > table").siblings("hr").hide();
-            $("body > div > table").hide();
-        }
-        if(hideSubject) {
-            $("body > div > div > table:nth-child(1)").next().hide();
-            $("body > div > div > table:nth-child(1)").hide();
-        }
-        if(hideContactDetails) {
-            $("table.message > tbody > tr:nth-child(1)").hide();
-            $("table.message > tbody > tr:nth-child(2)").hide();
-            $("div.wrapper > div.body > div.mail-header").hide();
-        }
+    }
+    if(hideEmail) {
+        $("<style>").prop("type", "text/css").html("@media print{body > div > table{display:none;}}").appendTo("head");
+        $("<style>").prop("type", "text/css").html("@media print{body > div > hr{display:none;}}").appendTo("head");
+    }
+    if(hideSubject) {
+        $("<style>").prop("type", "text/css").html("@media print{body > div > div > table:nth-child(1){display:none;}}").appendTo("head");
+        $("<style>").prop("type", "text/css").html("@media print{body > div > div > hr:nth-child(2){display:none;}}").appendTo("head");
+    }
+    if(hideContactDetails) {
+        $("<style>").prop("type", "text/css").html("@media print{body > div > div > table:nth-child(3) > tbody > tr:nth-child(1){display:none;}}").appendTo("head");
+        $("<style>").prop("type", "text/css").html("@media print{body > div > div > table:nth-child(3) > tbody > tr:nth-child(2){display:none;}}").appendTo("head");
+        $("<style>").prop("type", "text/css").html("@media print{div.wrapper > div.body > div.mail-header{display:none;}}").appendTo("head");
     }
 }
